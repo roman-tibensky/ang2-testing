@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+    <div>
+        <h2>My Moomoos</h2>
+        <ul class="cows">
+            <li *ngFor = "let moomoo of cows" [class.selected]="moomoo ===selectedMoo">
+                <a routerLink="/detail/{{moomoo.id}}">
+                    <span class="badge">{{moomoo.id}}</span> {{moomoo.name}}
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+
