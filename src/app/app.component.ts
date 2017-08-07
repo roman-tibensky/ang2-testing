@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MooMoosComponent } from './moomoo.component';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { MooMoosComponent } from './moomoo.component';
             <nav>
                 <a routerLink="/moomoos"> MooMoos</a>
                 <a routerLink="/dashboard">Dashboard</a>
+                <button (click)="goBack()">Back</button>
             </nav>
             <router-outlet></router-outlet>
         </div>`,
@@ -20,4 +22,12 @@ import { MooMoosComponent } from './moomoo.component';
 
 export class AppComponent {
     title = 'The Dork League 3: The Dorkening';
+
+    constructor(
+        private location: Location
+    ) {}
+
+    goBack() {
+        this.location.back();
+    }
 }

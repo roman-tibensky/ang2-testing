@@ -4,6 +4,7 @@ import { MooMooService } from '../services/moomoo.service';
 @Component({
     selector: 'dashie-dashie',
     templateUrl: 'dashboard.html',
+    styleUrls: ['./dashboard.component.css']
 })
 
 export class MooDashComponent implements OnInit {

@@ -1,11 +1,24 @@
 <!--The content below is only a placeholder and can be replaced.-->
     <div>
+        <div>
+            <label>MooMoo name</label> <input #newMooName />
+            <button (click)="add(newMooName.value); newMooName.value=''">
+                Add
+            </button>
+        </div>
+        <br>
+        <br>
+        <span *ngIf="selectedMoo">
+            {{selectedMoo.name | uppercase}} will be clicked!
+        </span>
+        <button (click)="onwardToMoo()">GO!</button>
         <h2>My Moomoos</h2>
         <ul class="cows">
-            <li *ngFor = "let moomoo of cows" [class.selected]="moomoo ===selectedMoo">
-                <a routerLink="/detail/{{moomoo.id}}">
-                    <span class="badge">{{moomoo.id}}</span> {{moomoo.name}}
-                </a>
+            <li *ngFor = "let moomoo of cows" [class.selected]="moomoo === selectedMoo" (click)="onMooClick(moomoo)">
+
+                <span class="badge">{{moomoo.id}}</span> {{moomoo.name}}
+                <button class="delete"
+                        (click)="delete(moomoo); $event.stopPropagation()">x</button>
             </li>
 
         </ul>

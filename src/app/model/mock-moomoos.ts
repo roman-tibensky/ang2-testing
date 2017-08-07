@@ -3,7 +3,7 @@
  */
 
 import { MooMoo } from './moomoo';
-
+/*
 export const MOOMOOS: MooMoo[] = [
     {
         id: 1,
@@ -76,3 +76,6 @@ export const MOOMOOS: MooMoo[] = [
         mateID: -1
     }
 ];
+
+
+*/

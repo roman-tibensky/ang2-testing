@@ -1,0 +1,11 @@
+<div id="search-component">
+    <h4>Moomoo Search</h4>
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+    <div>
+        <div *ngFor="let oneMoo of moomoos | async"
+             (click) = "gotoDetail(oneMoo)" class="search-result">
+            {{oneMoo.name}}
+        </div>
+    </div>
+
+</div>

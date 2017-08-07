@@ -1,8 +1,9 @@
 <h3> CowDashians </h3>
 <div class="grid grid-pad">
-    <div *ngFor="let oneMoo of cows" class="col-1-4">
+    <div *ngFor="let oneMoo of cows" [routerLink]="['/detail', oneMoo.id]" class="col-1-4">
         <div class="module hero">
             <h4>{{oneMoo.name}}</h4>
         </div>
     </div>
 </div>
+<moomoo-search></moomoo-search>

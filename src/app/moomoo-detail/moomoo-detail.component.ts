@@ -11,22 +11,8 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     selector: 'moomoo-detail',
-    template: `
-        <div *ngIf="oneMoo">
-            <h2>{{oneMoo.name}} is ready to be clicked on</h2>
-            <div>
-                <label>Rename: </label>
-                <input [(ngModel)]="oneMoo.name">
-            </div>
-            <h2>STATS:</h2>
-            <ul>
-                <li>ID: {{oneMoo.name}}</li>
-                <li>Clicked: {{oneMoo.timesClicked}}</li>
-                <li>AMP: {{oneMoo.amplifyer}}</li>
-                <li>mate: {{oneMoo.mateID > -1 ? oneMoo.mateID : 'N/A'}}</li>
-            </ul>
-        </div>
-    `
+    templateUrl: 'moomoo-detail.html',
+    styleUrls: ['./moomoo-detail.component.css']
 })
 
 
@@ -45,6 +31,14 @@ export class MooMooDetailComponent implements OnInit {
             .switchMap((params: ParamMap) =>
             this.mooServ.getOneMoo(+params.get('id')))
             .subscribe(oneMoo => {this.oneMoo = oneMoo});
+    }
+
+    save(): void {
+        this.mooServ.update(this.oneMoo)
+            .then(() => this.location.back())
+            .catch((e) => {
+                alert(e);
+            });
     }
 
 }
